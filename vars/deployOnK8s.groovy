@@ -6,8 +6,8 @@ def call(String deploymentFile) {     // ← use 'call' as the method name
         string(credentialsId: 'Jenkins-Token', variable: 'TOKEN')
     ]) {
         sh """
-            kubectl --server=${API} --token=${TOKEN} apply -f ${deploymentFile}
-            kubectl --server=${API} --token=${TOKEN} get pods
+        kubectl --server=\\${API} --token=\\${TOKEN} apply -f ${deploymentFile}
+        kubectl --server=\\${API} --token=\\${TOKEN} get pods
         """
     }
 }
